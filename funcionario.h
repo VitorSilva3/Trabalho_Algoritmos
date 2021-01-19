@@ -17,9 +17,9 @@ typedef struct{
     char nome[50];
     char genero;
     char tipo[50];
-    Data agenda; 
     int idade;
     float vencimento;
+    int idClinica;
 }Funcionario;
 
 /*functions/procedure declaration*/
