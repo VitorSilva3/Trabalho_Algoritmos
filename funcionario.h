@@ -1,5 +1,6 @@
 #ifndef FUNCIONARIO_H_
 #define FUNCIONARIO_H_
+    #include "utils.h"
 
 /*defines*/
 
@@ -15,6 +16,8 @@ typedef struct{
     int id;
     char nome[50];
     char genero;
+    char tipo[50];
+    Data agenda; 
     int idade;
     float vencimento;
 }Funcionario;
