@@ -20,7 +20,10 @@ typedef struct{
 }Funcionario;
 
 /*functions/procedure declaration*/
-void criarfuncionario(Funcionario *funcionario, int n);
+void criarFuncionario(Funcionario *funcionario, int n);
+void quantFuncionario(Funcionario *funcionario, int n);
+void mediaIdadesFuncionario(Funcionario *funcionario, int n);
+void listarMedicosVenci(Funcionario *funcionario, int n);
 
 
 #endif
