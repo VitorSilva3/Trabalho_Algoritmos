@@ -42,23 +42,25 @@ void quantFuncionario(Funcionario *funcionarios, int n){
 
     int contM = 0, contE = 0, contA = 0; //
 
-    if(funcionarios->tipo == "Médico" || funcionarios->tipo == "médico")
+    for (int i = 0; i < n; i++)
     {
-        contM = contM + 1;
+       if(funcionarios[i].tipo == "Médico" || funcionarios[i].tipo == "médico")
+        {
+            contM = contM + 1;
 
+        }
+
+        if(funcionarios[i].tipo == "Enfermeiro" || funcionarios[i].tipo == "enfermeiro")
+        {
+            contE = contE + 1;
+
+        }
+
+        if(funcionarios[i].tipo == "Auxiliar" || funcionarios[i].tipo == "auxiliar")
+        {
+            contA = contA + 1;
+        } 
     }
-
-    if(funcionarios->tipo == "Enfermeiro" || funcionarios->tipo == "enfermeiro")
-    {
-        contE = contE + 1;
-
-    }
-
-    if(funcionarios->tipo == "Auxiliar" || funcionarios->tipo == "auxiliar")
-    {
-        contA = contA + 1;
-    }
-    
 }
 
 void mediaIdadesFuncionario(Funcionario *funcionarios, int n, int contM, int contE, int contA){
@@ -68,24 +70,27 @@ void mediaIdadesFuncionario(Funcionario *funcionarios, int n, int contM, int con
 
     quantFuncionario(funcionarios,n);
 
-    if(funcionarios->tipo == "Médico" || funcionarios->tipo == "médico")
-    {
-        somaIdadesM = somaIdadesM + funcionarios->idade;
-        mediaIdadesM = somaIdadesM / contM;
+    for(int i; i < n, i++)
+    {    
+        if(funcionarios[i].tipo == "Médico" || funcionarios[i].tipo == "médico")
+        {
+            somaIdadesM = somaIdadesM + funcionarios[i].idade;
+            mediaIdadesM = somaIdadesM / contM;
 
-    }
+        }
 
-    if(funcionarios->tipo == "Enfermeiro" || funcionarios->tipo == "enfermeiro")
-    {
-        somaIdadesE = somaIdadesE + funcionarios->idade;
-        mediaIdadesE = somaIdadesE / contE;
+        if(funcionarios[i].tipo == "Enfermeiro" || funcionarios[i].tipo == "enfermeiro")
+        {
+            somaIdadesE = somaIdadesE + funcionarios[i].idade;
+            mediaIdadesE = somaIdadesE / contE;
 
-    }
+        }
 
-    if(funcionarios->tipo == "Auxiliar" || funcionarios->tipo == "auxiliar")
-    {
-        somaIdadesA = somaIdadesA + funcionarios->idade;
-        mediaIdadesA = somaIdadesA / contA;
+        if(funcionarios[i].tipo == "Auxiliar" || funcionarios[i].tipo == "auxiliar")
+        {
+            somaIdadesA = somaIdadesA + funcionarios[i].idade;
+            mediaIdadesA = somaIdadesA / contA;
+        }
     }
 }
 

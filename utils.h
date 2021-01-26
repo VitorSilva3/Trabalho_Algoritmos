@@ -4,7 +4,9 @@
 
     typedef struct 
     {
-        int data;
+        int hora;
+        int minutos;
+        int dia;
         int mes;
         int ano;
     }Data;

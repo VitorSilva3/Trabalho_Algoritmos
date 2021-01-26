@@ -19,7 +19,6 @@ typedef struct{
     int idade;
     float vencimento;
     int idClinica;
-    char tipoFuncionario[15];
 }Funcionario;
 
 /*functions/procedure declaration*/
