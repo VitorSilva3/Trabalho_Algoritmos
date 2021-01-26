@@ -26,7 +26,7 @@ void criarFuncionario(Funcionario *funcionario, int n){
 
 void quantFuncionario(Funcionario *funcionario, int n){
 
-    int contM = 0, contE = 0, contA = 0;
+    int contM = 0, contE = 0, contA = 0; //
 
     if(funcionario->tipo == "Médico" || funcionario->tipo == "médico")
     {
