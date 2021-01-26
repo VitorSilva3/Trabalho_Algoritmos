@@ -6,5 +6,6 @@
         int id;
     }Clinicas;
     
+    void criarClinica(Clinicas *clinica);
 
 #endif

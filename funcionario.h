@@ -2,7 +2,7 @@
 #define FUNCIONARIO_H_
 
 /*defines*/
-
+#include "clinicas.h"
 #define TAMFUNCIONARIO 50
 
 /*Enumerables*/
@@ -17,10 +17,12 @@ typedef struct{
     char genero;
     int idade;
     float vencimento;
+    int idClinica;
+    char tipoFuncionario[15];
 }Funcionario;
 
 /*functions/procedure declaration*/
-void criarfuncionario(Funcionario *funcionario, int n);
+void criarfuncionario(Funcionario *funcionario, Clinicas *clinica, int n);
 
 
 #endif
