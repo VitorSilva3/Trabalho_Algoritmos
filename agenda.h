@@ -1,9 +1,11 @@
 #ifndef AGENDA_H_
 #define AGENDA_H_
 
-    #include <utils.h>
-    #include "funcionario.h"
-    #include "utente.h"
+#include "utils.h"
+#include "funcionario.h"
+#include "utente.h"
+
+#define TAMAGENDA 50
 
     typedef struct 
     {

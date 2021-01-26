@@ -5,7 +5,7 @@
 void consultarAgendaClinica(Agenda *agenda, Funcionario *funcionario, int n, int idClinica){
     int totalConsultas = 0, i = 0;
 
-    for (i < n; i++)
+    for (i = 0; i < n; i++)
     {
         if ((funcionario[i].tipo == "Enfermeiro" || funcionario[i].tipo == "enfermeiro") && funcionario[i].idClinica == idClinica)
         {
@@ -30,7 +30,7 @@ void consultarAgendaClinica(Agenda *agenda, Funcionario *funcionario, int n, int
 
 void consultarAgendaFuncionario(Agenda *agenda, Utente *utente, int idFunc, int n){
     int i = 0;
-    for (i < n; i++)
+    for (i = 0; i < n; i++)
     {
         if (agenda[i].idFuncionario == idFunc)
         {

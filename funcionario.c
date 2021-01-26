@@ -2,7 +2,7 @@
 #include <string.h>
 #include "funcionario.h"
 
-void criarFuncionario(Funcionario *funcionario, Clinicas *clinica, int n){
+void criarFuncionario(Funcionario *funcionario, Clinica *clinica, int n){
 
     printf("Tipo de Funcionário: ");
     fgets(funcionario->tipo, 50, stdin);
@@ -142,7 +142,7 @@ void somaVencimPorGenero(Funcionario *funcionarios, int n){
 }
 
 
-void listarMedicosVenci(Funcionario *funcionario, Clinicas *clinica, int n){
+void listarMedicosVenci(Funcionario *funcionario, Clinica *clinica, int n){
     float somaVencim = 0;
 
     for (int i = 0; i < n; i++)
@@ -158,5 +158,5 @@ void listarMedicosVenci(Funcionario *funcionario, Clinicas *clinica, int n){
             }
         }
     }
-    puts("Total de vencimentos %f", somaVencim);
+    printf("Total de vencimentos %f", somaVencim);
 }

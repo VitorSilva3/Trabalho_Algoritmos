@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "clinicas.h"
 
-void criarClinica(Clinicas *clinica)
+void criarClinica(Clinica *clinica)
 {
     clinica->id++;
 }
