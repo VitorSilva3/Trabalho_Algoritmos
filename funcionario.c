@@ -142,19 +142,21 @@ void somaVencimPorGenero(Funcionario *funcionarios, int n){
 }
 
 
-void listarMedicosVenci(Funcionario *funcionario, int n, int somaVencim){
-
-    printf("ID | NOME | Vencimento\n");
+void listarMedicosVenci(Funcionario *funcionario, Clinicas *clinica, int n){
+    float somaVencim = 0;
 
     for (int i = 0; i < n; i++)
     {
-        if (funcionario[i].tipo == "Medico")
+        for (int j = 0; j < n; j++)
         {
-            printf("%d |", funcionario[i].id);
-            printf(" %s |", funcionario[i].nome);
-            printf(" %f |", funcionario[i].vencimento);
-        }
+            printf("Clinica ID: %d", clinica[i].id);
+            if (funcionario[j].tipo == "Medico" && funcionario[j].idClinica == clinica[i].id)
+            {
+                printf("\tMedico %c (ID: %d), vencimento %f", funcionario[j].nome, funcionario[j].id, funcionario[j].vencimento);
 
-        somaVencim = somaVencim + funcionario[i].vencimento;
+                somaVencim = somaVencim + funcionario[j].vencimento;
+            }
+        }
     }
+    puts("Total de vencimentos %f", somaVencim);
 }
