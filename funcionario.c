@@ -38,49 +38,54 @@ void criarFuncionario(Funcionario *funcionario, Clinicas *clinica, int n){
     funcionario->id = n + 1;
 }
 
-void quantFuncionario(Funcionario *funcionario, int n){
+void quantFuncionario(Funcionario *funcionarios, int n){
 
     int contM = 0, contE = 0, contA = 0; //
 
-    if(funcionario->tipo == "Médico" || funcionario->tipo == "médico")
+    if(funcionarios->tipo == "Médico" || funcionarios->tipo == "médico")
     {
         contM = contM + 1;
 
     }
 
-    if(funcionario->tipo == "Enfermeiro" || funcionario->tipo == "enfermeiro")
+    if(funcionarios->tipo == "Enfermeiro" || funcionarios->tipo == "enfermeiro")
     {
         contE = contE + 1;
 
     }
 
-    if(funcionario->tipo == "Auxiliar" || funcionario->tipo == "auxiliar")
+    if(funcionarios->tipo == "Auxiliar" || funcionarios->tipo == "auxiliar")
     {
         contA = contA + 1;
     }
     
 }
 
-void mediaIdadesFuncionario(Funcionario *funcionario, int n){
+void mediaIdadesFuncionario(Funcionario *funcionarios, int n, int contM, int contE, int contA){
 
     int somaIdadesM = 0, somaIdadesE = 0, somaIdadesA = 0;
+    float mediaIdadesM = 0, mediaIdadesE = 0, mediaIdadesA = 0;
 
-    if(funcionario->tipo == "Médico" || funcionario->tipo == "médico")
+    quantFuncionario(funcionarios,n);
+
+    if(funcionarios->tipo == "Médico" || funcionarios->tipo == "médico")
     {
-        somaIdadesM = somaIdadesM + funcionario->idade;
+        somaIdadesM = somaIdadesM + funcionarios->idade;
+        mediaIdadesM = somaIdadesM / contM;
 
     }
 
-    if(funcionario->tipo == "Enfermeiro" || funcionario->tipo == "enfermeiro")
+    if(funcionarios->tipo == "Enfermeiro" || funcionarios->tipo == "enfermeiro")
     {
-        somaIdadesE = somaIdadesE + funcionario->idade;
+        somaIdadesE = somaIdadesE + funcionarios->idade;
+        mediaIdadesE = somaIdadesE / contE;
 
     }
 
-    if(funcionario->tipo == "Auxiliar" || funcionario->tipo == "auxiliar")
+    if(funcionarios->tipo == "Auxiliar" || funcionarios->tipo == "auxiliar")
     {
-        somaIdadesA = somaIdadesA + funcionario->idade;
-
+        somaIdadesA = somaIdadesA + funcionarios->idade;
+        mediaIdadesA = somaIdadesA / contA;
     }
 }
 
