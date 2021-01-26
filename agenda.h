@@ -3,7 +3,7 @@
 
     #include <utils.h>
     #include "funcionario.h"
-    #include "utente.h                                                                             "
+    #include "utente.h"
 
     typedef struct 
     {
@@ -12,7 +12,7 @@
         int numeroSNS;
     }Agenda;
     
-    //void consultarAgenda(Agenda *agenda, Funcionario *Funcionario, Utente *utente);
-    void consultarAgenda(Agenda *agenda, int idFunc);
+    void consultarAgendaClinica(Agenda *agenda, Funcionario *funcionario, int n, int idClinica);
+    void consultarAgendaFuncionario(Agenda *agenda, Utente *utente, int idFunc, int n);
 
 #endif
