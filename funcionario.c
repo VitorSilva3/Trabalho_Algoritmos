@@ -26,15 +26,51 @@ void criarFuncionario(Funcionario *funcionario, int n){
 
 void quantFuncionario(Funcionario *funcionario, int n){
 
+    int contM = 0, contE = 0, contA = 0;
+
+    if(funcionario->tipo == "Médico" || funcionario->tipo == "médico")
+    {
+        contM = contM + 1;
+
+    }
+
+    if(funcionario->tipo == "Enfermeiro" || funcionario->tipo == "enfermeiro")
+    {
+        contE = contE + 1;
+
+    }
+
+    if(funcionario->tipo == "Auxiliar" || funcionario->tipo == "auxiliar")
+    {
+        contA = contA + 1;
+    }
     
 }
 
 void mediaIdadesFuncionario(Funcionario *funcionario, int n){
 
-    
+    int somaIdadesM = 0, somaIdadesE = 0, somaIdadesA = 0;
+
+    if(funcionario->tipo == "Médico" || funcionario->tipo == "médico")
+    {
+        somaIdadesM = somaIdadesM + funcionario->idade;
+
+    }
+
+    if(funcionario->tipo == "Enfermeiro" || funcionario->tipo == "enfermeiro")
+    {
+        somaIdadesE = somaIdadesE + funcionario->idade;
+
+    }
+
+    if(funcionario->tipo == "Auxiliar" || funcionario->tipo == "auxiliar")
+    {
+        somaIdadesA = somaIdadesA + funcionario->idade;
+
+    }
 }
 
-void listarMedicosVenci(Funcionario *funcionario, int n){
+void listarMedicosVenci(Funcionario *funcionario, int n, int somaVencim){
 
     printf("ID | NOME | Vencimento\n");
 
@@ -46,5 +82,7 @@ void listarMedicosVenci(Funcionario *funcionario, int n){
             printf(" %s |", funcionario[i].nome);
             printf(" %f |", funcionario[i].vencimento);
         }
+
+        somaVencim = somaVencim + funcionario[i].vencimento;
     }
 }

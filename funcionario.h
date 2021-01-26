@@ -24,7 +24,7 @@ typedef struct{
 void criarFuncionario(Funcionario *funcionario, int n);
 void quantFuncionario(Funcionario *funcionario, int n);
 void mediaIdadesFuncionario(Funcionario *funcionario, int n);
-void listarMedicosVenci(Funcionario *funcionario, int n);
+void listarMedicosVenci(Funcionario *funcionario, int n, int somaVencim);
 
 
 #endif
