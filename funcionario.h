@@ -14,6 +14,7 @@
 typedef struct{
     int id;
     char nome[50];
+    char tipo[50];
     char genero;
     int idade;
     float vencimento;
@@ -22,7 +23,10 @@ typedef struct{
 }Funcionario;
 
 /*functions/procedure declaration*/
-void criarfuncionario(Funcionario *funcionario, Clinicas *clinica, int n);
+void criarFuncionario(Funcionario *funcionario, int n);
+void quantFuncionario(Funcionario *funcionario, int n);
+void mediaIdadesFuncionario(Funcionario *funcionario, int n);
+void listarMedicosVenci(Funcionario *funcionario, int n, int somaVencim);
 
 
 #endif
