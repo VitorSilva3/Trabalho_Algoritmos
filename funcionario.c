@@ -33,14 +33,14 @@ void criarFuncionario(Funcionario *funcionario, Clinicas *clinica, int n){
     
     puts("Tipos de funcionários: Médico, Enfermeiro e Auxiliar");
     printf("Tipo de Funcionario: ");
-    scanf("%c", &funcionario->tipoFuncionario);
+    scanf("%c", &funcionario->tipo);
 
     funcionario->id = n + 1;
 }
 
 void quantFuncionario(Funcionario *funcionarios, int n){
 
-    int contM = 0, contE = 0, contA = 0; //
+    int contM = 0, contE = 0, contA = 0; 
 
     for (int i = 0; i < n; i++)
     {
@@ -70,7 +70,7 @@ void mediaIdadesFuncionario(Funcionario *funcionarios, int n, int contM, int con
 
     quantFuncionario(funcionarios,n);
 
-    for(int i; i < n, i++)
+    for(int i = 0; i < n; i++)
     {    
         if(funcionarios[i].tipo == "Médico" || funcionarios[i].tipo == "médico")
         {
@@ -93,6 +93,54 @@ void mediaIdadesFuncionario(Funcionario *funcionarios, int n, int contM, int con
         }
     }
 }
+
+void somaVencimPorGenero(Funcionario *funcionarios, int n){
+
+    float somaVencMedF = 0, somaVencMedM = 0;
+    float somaVencEnfF = 0, somaVencEnfM = 0;
+    float somaVencAuxF = 0, somaVencAuxM = 0;
+
+    for(int i = 0; i < n; i++)
+    {    
+        if(funcionarios[i].tipo == "Médico" || funcionarios[i].tipo == "médico")
+        {
+            if (funcionarios[i].genero == 'F')
+            {
+                somaVencMedF = somaVencMedF + funcionarios[i].vencimento;
+            }
+            else if (funcionarios[i].genero == 'M')
+            {
+                somaVencMedM = somaVencMedM + funcionarios[i].vencimento;
+            }
+            
+        }
+
+        if(funcionarios[i].tipo == "Enfermeiro" || funcionarios[i].tipo == "enfermeiro")
+        {
+            if (funcionarios[i].genero == 'F')
+            {
+                somaVencEnfF = somaVencEnfF + funcionarios[i].vencimento;
+            }
+            else if (funcionarios[i].genero == 'M')
+            {
+                somaVencEnfM = somaVencEnfM + funcionarios[i].vencimento;
+            }   
+        }
+
+        if(funcionarios[i].tipo == "Auxiliar" || funcionarios[i].tipo == "auxiliar")
+        {
+            if (funcionarios[i].genero == 'F')
+            {
+                somaVencAuxF = somaVencAuxF + funcionarios[i].vencimento;
+            }
+            else if (funcionarios[i].genero == 'M')
+            {
+                somaVencAuxM = somaVencAuxM + funcionarios[i].vencimento;
+            } 
+        }
+    }
+}
+
 
 void listarMedicosVenci(Funcionario *funcionario, int n, int somaVencim){
 
