@@ -2,8 +2,12 @@
 #include <string.h>
 #include "agenda.h"
 
-void consultarAgendaClinica(Agenda *agenda, Funcionario *funcionario, int n, int idClinica){
+void consultarAgendaClinica(Agenda *agenda, Funcionario *funcionario, int n){
     int totalConsultas = 0, i = 0;
+    int idClinica;
+
+    printf("ID Clinica desejada: ");
+    scanf("%d", &idClinica);
 
     for (i = 0; i < n; i++)
     {
@@ -28,8 +32,13 @@ void consultarAgendaClinica(Agenda *agenda, Funcionario *funcionario, int n, int
     }
 }
 
-void consultarAgendaFuncionario(Agenda *agenda, Utente *utente, int idFunc, int n){
-    int i = 0;
+void consultarAgendaFuncionario(Agenda *agenda, int n){
+    int i = 0, idFunc;
+    Utente *utente;
+
+    printf("ID Funcionario desejado: ");
+    scanf("%d", idFunc);
+
     for (i = 0; i < n; i++)
     {
         if (agenda[i].idFuncionario == idFunc)

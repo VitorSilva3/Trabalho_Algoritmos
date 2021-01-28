@@ -14,7 +14,7 @@
         int numeroSNS;
     }Agenda;
     
-    void consultarAgendaClinica(Agenda *agenda, Funcionario *funcionario, int n, int idClinica);
-    void consultarAgendaFuncionario(Agenda *agenda, Utente *utente, int idFunc, int n);
+    void consultarAgendaClinica(Agenda *agenda, Funcionario *funcionario, int n);
+    void consultarAgendaFuncionario(Agenda *agenda, int n);
 
 #endif

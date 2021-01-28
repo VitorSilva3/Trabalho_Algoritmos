@@ -6,9 +6,8 @@
 #include "clinicas.h"
 #include "agenda.h"
 
-
 void menuPrincipal();
-int menuFuncionario(Funcionario *funcionarios, int nFuncionarios, Clinica clinica);
+int menuFuncionario(Funcionario *funcionarios, int nFuncionarios, Clinica clinica, int nClinicas);
 int menuClinica(Clinica *Clinicas, int nClinicas, Funcionario funcionario);
 int menuAgenda(Agenda *Agendas, int nAgendas, Funcionario funcionario);
 int menuUtente(Utente *Utentes, int nUtentes, Agenda agenda);
@@ -51,7 +50,7 @@ void menuPrincipal(){
         {
             break;
             case 1:
-                menuFuncionario(funcionarios, nFuncionarios, clinica);
+                menuFuncionario(funcionarios, nFuncionarios, clinica, nClinicas);
             break;
             case 2:
                 menuClinica(clinicas, nClinicas, funcionario);
@@ -75,7 +74,7 @@ void menuPrincipal(){
 }
 
 
-int menuFuncionario(Funcionario *funcionarios, int nFuncionarios, Clinica clinica){
+int menuFuncionario(Funcionario *funcionarios, int nFuncionarios, Clinica clinica, int nClinicas){
 
     int opcao;
 
@@ -95,6 +94,32 @@ int menuFuncionario(Funcionario *funcionarios, int nFuncionarios, Clinica clinic
 
     printf("|Opcao:");
     scanf("%d", &opcao);
+
+    switch (opcao)
+        {
+            break;
+            case 1:
+                criarFuncionario(&funcionarios, &clinica, nFuncionarios);
+            break;
+            case 2:
+                //quantFuncionario(&funcionario, nFuncionarios);
+            break;
+            case 3:
+                mediaIdadesFuncionario(&funcionarios, &clinica, nFuncionarios, nClinicas);
+            break;
+            case 4:
+                
+            break;
+            case 5:
+                listarMedicosVenci(&funcionarios, &clinica, nFuncionarios);
+            break;
+            default:
+                printf("opcao invalida");
+                fflush(stdin);
+
+                getchar();
+            break;
+        }
 
     return opcao;
 }
@@ -116,10 +141,20 @@ int menuClinica(Clinica *Clinicas, int nClinicas, Funcionario funcionario){
     printf("|Opcao:");
     scanf("%d", &opcao);
 
+    switch (opcao)
+    {
+    case 1:
+        criarClinica(nClinicas);
+        break;
+    
+    default:
+        break;
+    }
+
     return opcao;
 }
 
-int menuAgenda(Agenda *Agendas, int nAgendas, Funcionario funcionario){
+int menuAgenda(Agenda *agendas, int nAgendas, Funcionario funcionario){
 
     int opcao;
 
@@ -136,6 +171,18 @@ int menuAgenda(Agenda *Agendas, int nAgendas, Funcionario funcionario){
 
     printf("|Opcao:");
     scanf("%d", &opcao);
+
+    switch (opcao)
+    {
+    case 1:
+        consultarAgendaClinica(&agendas, &funcionario, nAgendas);
+        break;
+    case 2:
+        consultarAgendaFuncionario(&agendas, nAgendas);
+        break;
+    default:
+        break;
+    }
 
     return opcao;
 }

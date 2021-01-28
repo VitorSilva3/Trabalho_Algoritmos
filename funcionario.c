@@ -38,7 +38,7 @@ void criarFuncionario(Funcionario *funcionario, Clinica *clinica, int n){
     funcionario->id = n + 1;
 }
 
-void quantFuncionario(Funcionario *funcionarios, int n){
+/*void quantFuncionario(Funcionario *funcionarios, int n){
 
     int contM = 0, contE = 0, contA = 0; 
 
@@ -61,40 +61,84 @@ void quantFuncionario(Funcionario *funcionarios, int n){
             contA = contA + 1;
         } 
     }
-}
+    return contM, contE, contA;
+}*/
 
-void mediaIdadesFuncionario(Funcionario *funcionarios, int n, int contM, int contE, int contA){
-
-    int somaIdadesM = 0, somaIdadesE = 0, somaIdadesA = 0;
-    float mediaIdadesM = 0, mediaIdadesE = 0, mediaIdadesA = 0;
-
-    quantFuncionario(funcionarios,n);
-
-    for(int i = 0; i < n; i++)
+void mediaIdadesFuncionario(Funcionario *funcionarios, Clinica *clinicas, int n, int nClinicas){
+    
+    for(int j = 0; j < nClinicas; j++)
     {    
-        if(funcionarios[i].tipo == "Médico" || funcionarios[i].tipo == "médico")
-        {
-            somaIdadesM = somaIdadesM + funcionarios[i].idade;
-            mediaIdadesM = somaIdadesM / contM;
 
+        int somaIdadesM = 0, somaIdadesE = 0, somaIdadesA = 0, contM = 0, contE = 0, contA = 0;
+        float mediaIdadesM = 0, mediaIdadesE = 0, mediaIdadesA = 0, somaVenciMM = 0, somaVenciMF = 0, somaVenciEM = 0, somaVenciEF = 0, somaVenciAM = 0, somaVenciAF = 0,;
+
+
+        for(int i = 0; i < n; i++)
+        {    
+            if((funcionarios[i].tipo == "Médico" || funcionarios[i].tipo == "médico") && funcionarios[i].idClinica == clinicas[j])
+            {
+                somaIdadesM = somaIdadesM + funcionarios[i].idade;
+                contM++;
+                if (funcionarios[i].genero == "Masculino" || funcionarios[i].genero == "masculino")
+                {
+                    somaVenciMM = somaVenciMM + funcionarios[i].vencimento;
+                }
+                else
+                {
+                    somaVenciMF = somaVenciMF + funcionarios[i].vencimento;
+                }
+                
+            }
+
+            if(funcionarios[i].tipo == "Enfermeiro" || funcionarios[i].tipo == "enfermeiro")
+            {
+                somaIdadesE = somaIdadesE + funcionarios[i].idade;
+                contE++;
+                if (funcionarios[i].genero == "Masculino" || funcionarios[i].genero == "masculino")
+                {
+                    somaVenciEM = somaVenciEM + funcionarios[i].vencimento;
+                }
+                else
+                {
+                    somaVenciEF = somaVenciEF + funcionarios[i].vencimento;
+                }
+
+            }
+
+            if(funcionarios[i].tipo == "Auxiliar" || funcionarios[i].tipo == "auxiliar")
+            {
+                somaIdadesA = somaIdadesA + funcionarios[i].idade;
+                contA++;
+                if (funcionarios[i].genero == "Masculino" || funcionarios[i].genero == "masculino")
+                {
+                    somaVenciAM = somaVenciAM + funcionarios[i].vencimento;
+                }
+                else
+                {
+                    somaVenciAF = somaVenciAF + funcionarios[i].vencimento;
+                }
+            }
         }
+        mediaIdadesM = somaIdadesM / contM;
+        mediaIdadesE = somaIdadesE / contE;
+        mediaIdadesA = somaIdadesA / contA;
 
-        if(funcionarios[i].tipo == "Enfermeiro" || funcionarios[i].tipo == "enfermeiro")
-        {
-            somaIdadesE = somaIdadesE + funcionarios[i].idade;
-            mediaIdadesE = somaIdadesE / contE;
+        printf("Clinica %d", clinicas[j].id);
+        printf("\tExiste %d medicos com media de %f de idades", contM, mediaIdadesM);
+        printf("\t\tSoma de vencimentos do genero masculino: %f", somaVenciMM);
+        printf("\t\tSoma de vencimentos do genero feminino: %f", somaVenciMF);
 
-        }
+        printf("\tExiste %d enfermeiros com media de %f de idades", contE, mediaIdadesE);
+        printf("\t\tSoma de vencimentos do genero masculino: %f", somaVenciEM);
+        printf("\t\tSoma de vencimentos do genero feminino: %f", somaVenciEF);
 
-        if(funcionarios[i].tipo == "Auxiliar" || funcionarios[i].tipo == "auxiliar")
-        {
-            somaIdadesA = somaIdadesA + funcionarios[i].idade;
-            mediaIdadesA = somaIdadesA / contA;
-        }
+        printf("\tExiste %d auxiliares com media de %f de idades", contA, mediaIdadesA);
+        printf("\t\tSoma de vencimentos do genero masculino: %f", somaVenciAM);
+        printf("\t\tSoma de vencimentos do genero feminino: %f", somaVenciAF);
     }
 }
 
-void somaVencimPorGenero(Funcionario *funcionarios, int n){
+/*void somaVencimPorGenero(Funcionario *funcionarios, int n){
 
     float somaVencMedF = 0, somaVencMedM = 0;
     float somaVencEnfF = 0, somaVencEnfM = 0;
@@ -139,7 +183,7 @@ void somaVencimPorGenero(Funcionario *funcionarios, int n){
             } 
         }
     }
-}
+}*/
 
 
 void listarMedicosVenci(Funcionario *funcionario, Clinica *clinica, int n){
